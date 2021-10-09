@@ -1,0 +1,501 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connected</title>
+    <link rel="icon" href="static/images/ProfileHome/connected.png" type="image/icon type">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/60fd9acb6f.js"   crossorigin="anonymous"></script>
+</head>
+<body>
+    
+
+    <nav>
+         
+        <div class="nav-left">
+
+            <img src="{% static 'images\ProfileHome\connected.png ' %}" class="logo">
+            <ul>
+                <li><div class="clickable" onclick="notificationMenuToggle()"><img src="{% static 'images\ProfileHome\notification.png ' %}"></div></a></li>
+                <li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><img src="{% static 'images\ProfileHome\inbox.png ' %}" alt=""></a></li>
+                <li><a href="/profile"><img src="{% static 'images\ProfileHome\profile.svg' %}" alt=""></a></li>
+
+                
+
+            </ul>
+        </div>
+
+
+        <div class="nav-right">
+            <div class="search-box">
+                <form method="POST" class="search">
+                     {% csrf_token %}
+                <img src="{% static 'images\ProfileHome\search.png ' %}">
+                <input type="text" placeholder="Search" name="sea">
+                <button type="submit"  name="search"  style="border-radius:25%; background:#fff; color:#0aa9ff;margin-left:10px;padding-left:10px;padding-right:10px;border:1px #fff solid;">Search</button>
+                </form>
+            </div>
+            <div class="nav-user-icon online" onclick="settingsMenuToggle()">
+                <img src="{{dp}}">
+            </div>
+        </div>
+
+
+     <!---------Settings-menu------------------>  
+        <div class="settings-menu">
+
+            <div id="dark-btn">
+                <span></span>
+            </div>
+            <div class="settings-menu-inner">
+                <div class="user-profile">
+                    <img src="{{dp}}">
+                    <div>
+                        <p>{{name}}</p>
+                        <a href="/profile">See Your Profile</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="user-profile">
+                    <img src="{% static 'images\ProfileHome\feedback.png ' %}">
+                    <div>
+                        <p>Give Feedback</p>
+                        <a href="/feedback">Help Us to add more feature</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="settings-links">
+                    <img src="{% static 'images\ProfileHome\setting.png ' %}"  class="settings-icon">
+                    <a href="/details">Settings & Privacy <img src="{% static 'images\ProfileHome\arrow.png ' %}" width="10px"></a>
+                </div>
+
+
+                <div class="settings-links">
+                    <img src="{% static 'images\ProfileHome\logout.png ' %}"  class="settings-icon">
+                    <form method="POST" class="logout" >
+                                  {% csrf_token %}
+                        <button type="submit" value="Submit"  name="logout" style="text-decoration:none">
+                    <a href="/home"> Logout <img src="{% static 'images\ProfileHome\arrow.png ' %}"  width="10px"></a>
+                   </button></form>
+                </div>
+            </div>  
+        </div>
+
+
+        <div class="notification-menu">
+
+     
+                
+                <div class="notifications">
+                    <img src="{{dp}}">
+                    <div>
+                        <p>Give Feedback</p> 
+                        <small>Updated Profile</small>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="notifications">
+                    <img src="{% static 'images\dp.jpg ' %}">
+                    <div>
+                        <p>Give Feedback</p> 
+                        <small>Updated Profile</small>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="notifications">
+                    <img src="{% static 'images\dp.jpg ' %}">
+                    <div>
+                        <p>Give Feedback</p> 
+                        <small>Updated Profile</small>
+                    </div>
+                </div>
+                <hr>
+                <a href="notification.html">See All</a>
+            </div>  
+        </div>
+    </nav>
+
+
+
+
+    <div class="container">
+
+       <!--------- left-sidebar------------------> 
+
+     <div class="left-sidebar">
+        <div class="imp-links">
+
+            <a href="/news"><img src="{% static 'images\ProfileHome\news.png ' %}" alt=""> Latest News</a>
+            <a href="/friends"><img src="{% static 'images\ProfileHome\friends.png' %}" alt=""> Friends</a>
+            <a href="https://discord.gg/rESDDT2N"><img src="{% static 'images\ProfileHome\group.png ' %}" alt=""> Group</a>
+            <a href="https://www.amazon.in/?&ext_vrnc=hi&tag=googhydrabk1-21&ref=pd_sl_7hz2t19t5c_e&adgrpid=58355126069&hvpone=&hvptwo=&hvadid=486386870127&hvpos=&hvnetw=g&hvrand=16353899788453121876&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007777&hvtargid=kwd-10573980&hydadcr=14453_2154373&gclid=CjwKCAjwndCKBhAkEiwAgSDKQY6ExIoEEOrOK9YcsPeUs6pRAnBsQoYZ5G4JT-wKzSc5CBUhK4LONhoCZk4QAvD_BwE"><img src="{% static 'images\ProfileHome\marketplace.png ' %}" alt=""> Marketplace</a>
+            <a href="https://www.youtube.com"><img src="{% static 'images\ProfileHome\watch.png ' %}" alt=""> Watch</a>
+            <a href="https://www.instagram.com/yakob____/">See More</a>
+        </div>
+        <div class="shortcut-links">
+            <p>Your Shortcuts</p>
+            <a href="https://www.linkedin.com/in/jacob-alwin-joy-9493751a4/"><img src="{% static 'images\ProfileHome\shortcut-1.png ' %}" >Web Developers</a>
+            <a href="https://www.figma.com/files/recent?fuid=976488080347286323"><img src="{% static 'images\ProfileHome\shortcut-2.png ' %}">Web Design Software</a>
+            <a href="https://www.youtube.com/channel/UC59K-uG2A5ogwIrHw4bmlEg"><img src="{% static 'images\ProfileHome\shortcut-3.png ' %}">Full Statck Development</a>
+            <a href=https://codepen.io/trending#"><img src="{% static 'images\ProfileHome\shortcut-4.png ' %}">Website Experts</a>
+        </div>
+       </div>
+
+     <!--------- main-content------------------> 
+
+        <div class="main-content">
+
+            <div class="story-gallary">
+
+
+
+                <div class="story" id="output"  style="background-image: linear-gradient(transparent,rgba(0, 0, 0, 0.5)),url(https://media-exp1.licdn.com/dms/image/C5603AQGtyc4J7YWoPw/profile-displayphoto-shrink_200_200/0/1627763295848?e=1634169600&v=beta&t=85g9obN88eSTcwdqpTSzmnhnslae1--dTxhxGoG4M4E);">
+                        <form method="POST" class="upload-story">
+                      {% csrf_token %}
+                    <img class="story-head" src="{% static 'images/add.jpg ' %}">
+
+                           <a href=""> <div class="image-upload">
+                                <label for="file-upload" class="clickable" onchange="loadFile(event)">
+                                  <img class="story-head" src="{% static 'images/add.jpg ' %}" />
+                                </label>
+                                <input id="file-upload" type="file" accept="image/*"/>
+                              </div></a>
+                                       <input type="hidden" name="url" id="url">
+
+
+                           <button type="button" onclick="uploadimage()" style="margin-left: 33% ;margin-bottom: 20px; border-radius :20% ; background :#0aa9ff; padding:5px ; width : 100px">Confirm</button>
+
+
+                     <button type="submit" name="upload-story" style="background :#0aa9ff ; width : 100px ; margin-top:25px ; border-radius : 7px">Post Story</button>
+                        </form>
+                </div>
+
+                {% for so,story,adps in story %}
+
+                <div class="story" style="background-image: linear-gradient(transparent,rgba(0, 0, 0, 0.5)),url({{story}});">
+                    <img  class="story-head" src="{{adps}}">
+                    <p>{{so}}</p>
+                </div>
+
+                {% endfor %}
+
+<!--                <div class="story" style="background-image: linear-gradient(transparent,rgba(0, 0, 0, 0.5)),url(https://media-exp1.licdn.com/dms/image/C5603AQGtyc4J7YWoPw/profile-displayphoto-shrink_200_200/0/1627763295848?e=1634169600&v=beta&t=85g9obN88eSTcwdqpTSzmnhnslae1&#45;&#45;dTxhxGoG4M4E);">-->
+<!--                    <img  class="story-head" src="{% static 'images\dp.jpg ' %}">-->
+<!--                    <p>Post Story</p>-->
+<!--                </div>-->
+
+
+            </div>
+
+
+
+
+
+
+
+            <form method="POST" class="upload-post">
+                      {% csrf_token %}
+                <div class="write-post-container">
+
+                    <div class="user-profile">
+                        <img src="{{dp}}">
+                        <div>
+
+                            <p>{{name}}</p>
+                            <small>Public <i class="fas fa-caret-down"></i> </small>
+
+                        </div>
+                    </div>
+                    <div class="post-input-container">
+                        <textarea rows="3"placeholder="What's on your mind" name="description"></textarea>
+<!--                           <input type="file" accept="image/*" onchange="loadFile(event)">-->
+                            <img id="output" style="width :100px "/>
+                            <div id="file-upload-filename"></div>
+
+                        <div class="add-post-links">
+
+                            <a href=""> <div class="image-upload">
+                                <label for="file-upload" class="clickable">
+                                    <img src="{% static 'images\ProfileHome\file.svg' %}">File Format
+                                </label>
+
+
+                                <input id="file-upload" type="file" accept="" onchange="loadFile(event)" />
+                              </div></a>
+
+                            <script>
+
+
+                                     var loadFile = function(event) {
+                                    var reader = new FileReader();
+                                    reader.onload = function(){
+                                      var output = document.getElementById('output');
+                                      output.src = reader.result;
+                                    };
+                                    reader.readAsDataURL(event.target.files[0]);
+                                  };
+
+
+                                var input = document.getElementById( 'file-upload' );
+                                var infoArea = document.getElementById( 'file-upload-filename' );
+
+                                input.addEventListener( 'change', showFileName );
+
+                                function showFileName( event ) {
+
+                                  // the change event gives us the input it occurred in
+                                  var input = event.srcElement;
+
+                                  // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
+                                  var fileName = input.files[0].name;
+
+                                  // use fileName however fits your app best, i.e. add it into a div
+                                  infoArea.textContent = 'File name: ' + fileName;
+                                }
+
+                            </script>
+
+
+
+                         <a href=""> <div class="image-upload">
+                                <label for="file-upload" class="clickable" onchange="loadFile(event)">
+                                  <img src="{% static 'images\photo.png' %}"/>Photo
+                                </label>
+                                <input id="file-upload" type="file" accept="image/*"/>
+                              </div></a>
+
+                             <a href=""> <div class="image-upload">
+                                <label for="file-upload" class="clickable" onchange="loadFile(event)">
+                                  <img src="{% static 'images\live-video.png' %}"/>Video
+                                </label>
+                                <input id="file-upload" name="files[]" type="file" accept="video/*"/>
+
+
+                              </div></a>
+                             <input type="hidden" name="url" id="url">
+
+                           <button type="button" onclick="uploadimage()" style="margin-left: 33% ;margin-bottom: 20px; border-radius :30% ; background :#0aa9ff; padding:5px ; width : 80px; border : 1px #0aa9ff solid;">Confirm</button>
+
+                        </div>
+
+
+                                      <!--Upload Function-->
+                             <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+                            <script>
+                                var config = {
+                                apiKey: "AIzaSyCztfnYVUT49K8JVDRsL4z1oSxN8lu7V-E",
+                                authDomain: "connected-try.firebaseapp.com",
+                                databaseURL: "https://connected-try-default-rtdb.firebaseio.com",
+                                projectId: "connected-try",
+                                storageBucket: "connected-try.appspot.com",
+                                messagingSenderId: "1004314390323",
+                                appId: "1:1004314390323:web:51d248e16cdf9e15ac5846",
+                                measurementId: "G-P0MFRMLT0E"
+                              };
+                              firebase.initializeApp(config);
+
+                              // Get a reference to the storage service, which is used to create references in your storage bucket
+
+                              function uploadimage(){
+                              var storage = firebase.storage();
+
+                              var file = document.getElementById("file-upload").files[0];
+
+                              var storageRef = storage.ref();
+
+                              var thisref = storageRef.child(file.name).put(file);
+
+                              thisref . on('state_changed',function(snapshot){
+
+                              console.log("file uplaoded succesfully");
+
+                              },
+                              function(error) {
+
+                              },
+
+
+                              function() {
+                              // Upload completed successfully, now we can get the download URL
+                              var downloadURL = thisref.snapshot.downloadURL;
+                              console.log("got url");
+                              document.getElementById("url").value = downloadURL;
+                              alert("file uploaded successfully");
+                            });
+                                }
+
+                            </script>
+
+                          <button type="submit" name="upload-post" style="margin-bottom: 20px; border-radius :20% ;  padding:1px ; width : 100px; border : 1px #fff solid;">Upload</button>
+                    </div>
+                </div>
+            </form>
+
+
+
+             {% for date,des,urls,names,adp in list %}
+
+            <div class="post-container">
+                <div class="post-row">
+                    <div class="user-profile">
+                        <img src="{{adp}}">
+                        <div>
+                            <p>{{names}}</p>
+                           <span>{{date}}</span>
+                        </div>
+                    </div>
+                    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                </div>
+
+                <p class="post-text">{{des}}</p>
+                <img src="{{urls}}" alt="{{urls}}" class="post-img">
+
+                <div class="post-row">
+
+                    <div class="activity-icons">
+                        <div><img src="{% static 'images\like-blue.png ' %}">120</div>
+                        <div><img src="{% static 'images\comments.png ' %}">45</div>
+                        <div><img src="{% static 'images\share.png ' %}">4</div>
+
+
+                    </div>
+                    <div class="post-profile-icon">
+                        <img src="{{dp}}"> <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+
+
+               <div class="post-container">
+                <div class="post-row">
+                    <div class="user-profile">
+                        <img src="{% static 'images\dp.jpg ' %}">
+                        <div>
+                            <p>George Colobus</p>
+                           <span>June 24 2021,13:40pm</span>
+                        </div>
+                    </div>
+                    <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                </div>
+
+                <p class="post-text">Am Jacob :) <span>you cant see me</span>.Cause am great and buatiful <a href="#">Yakob</a> <a href="#">Instatgram</a></p>
+            <iframe id="5d33ec41-342d-4e9d-931b-e4b2f632ba3c" src="https://www.vectary.com/viewer/v1/?model=5d33ec41-342d-4e9d-931b-e4b2f632ba3c&env=studio3" frameborder="0" width="100%" height="480"></iframe>
+
+                <div class="post-row">
+
+                    <div class="activity-icons">
+                        <div><img src="{% static 'images\like-blue.png ' %}">120</div>
+                        <div><img src="{% static 'images\comments.png ' %}">45</div>
+                        <div><img src="{% static 'images\share.png ' %}">4</div>
+
+
+                    </div>
+                    <div class="post-profile-icon">
+                        <img src="{% static 'images\dp.jpg ' %}"> <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <button type="button" class="load-more-btn" >Load More</button>
+
+
+
+        </div>
+
+     <!--------- right-sidebar------------------> 
+
+        <div class="right-sidebar">
+
+            <div class="sidebar-title">
+                <h4>Events</h4>
+                <a href="#">See All</a>
+            </div>
+            
+            <div class="event">
+                <div class="left-event">
+                    <h3>18</h3>
+                    <span>March</span>
+                </div>
+                <div class="right-event">
+                    <h4>Social Media</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Kottayam,Kerala</p>
+                    <a href="#">More Info</a>
+                </div>
+            </div>
+            <div class="event">
+                <div class="left-event">
+                    <h3>22</h3>
+                    <span>August</span>
+                </div>
+                <div class="right-event">
+                    <h4>Operating System</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Kochi,Kerala</p>
+                    <a href="#">More Info</a>
+
+                </div>
+            </div>
+
+            <div class="sidebar-title">
+                <h4>Advertisment</h4>
+                <a href="#">See All</a>
+            </div>
+            <iframe id="a6cb95c3-e739-449d-a430-40dd6990b5e9" src="https://www.vectary.com/viewer/v1/?model=a6cb95c3-e739-449d-a430-40dd6990b5e9&env=studio3" frameborder="0" width="100%" height="480"></iframe>
+
+<!--            <img src="{% static 'images\ProfileHome\advertisement.png ' %}" class="sidebar-ads">-->
+
+            <div class="sidebar-title">
+                <h4>Conversation</h4>
+                <a href="#">Hide Chat</a>
+            </div>
+
+            { % for i in alluser % }
+
+            <div class="online-list">
+                <div class="online">
+                    <img src="{{dp}}">
+                </div>
+                <p>Jacob</p>
+            </div>
+
+            { % endfor % }
+
+<!--            <div class="online-list">-->
+<!--                <div class="online">-->
+<!--                    <img src="{% static 'images\dp.jpg ' %}">-->
+<!--                </div>-->
+<!--                <p>Joseph KK</p>-->
+<!--            </div>-->
+
+<!--            <div class="online-list">-->
+<!--                <div class="online">-->
+<!--                    <img src="{% static 'images\dp.jpg ' %}">-->
+<!--                </div>-->
+<!--                <p>Francis Chako</p>-->
+<!--            </div>-->
+
+        </div>    
+
+    </div>
+
+  
+    <div class="footer">
+        <p>Copyright 2021 - Yakob  </p>
+    </div>
+
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

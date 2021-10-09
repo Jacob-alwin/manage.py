@@ -1,0 +1,206 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connected</title>
+        <link rel="icon" href="static/images/ProfileHome/connected.png" type="image/icon type">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/60fd9acb6f.js"   crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav>
+
+        <div class="nav-left">
+
+            <img src="{% static 'images\ProfileHome\connected.png ' %}" class="logo">
+            <ul>
+                <li><div class="clickable" onclick="notificationMenuToggle()"><img src="{% static 'images\ProfileHome\notification.png ' %}"></div></a></li>
+                <li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><img src="{% static 'images\ProfileHome\inbox.png ' %}" alt=""></a></li>
+                <li><a href="/profile"><img src="{% static 'images\ProfileHome\profile.svg' %}" alt=""></a></li>
+
+
+
+            </ul>
+        </div>
+
+
+        <div class="nav-right">
+              <div class="search-box">
+                <form method="POST" class="search">
+                     {% csrf_token %}
+                <img src="{% static 'images\ProfileHome\search.png ' %}">
+                <input type="text" placeholder="Search" name="sea">
+                <button type="submit"  name="search"  style="border-radius:25%; background:#fff; color:#0aa9ff;margin-left:10px;padding-left:10px;padding-right:10px;border:1px #fff solid;">Search</button>
+                </form>
+            </div>
+            <div class="nav-user-icon online" onclick="settingsMenuToggle()">
+                <img src="{{dp}}">
+
+            </div>
+        </div>
+
+
+     <!---------Settings-menu------------------>
+        <div class="settings-menu">
+
+            <div id="dark-btn">
+                <span></span>
+            </div>
+            <div class="settings-menu-inner">
+                <div class="user-profile">
+                    <img src="{{dp}}">
+                    <div>
+                        <p>{{name}}</p>
+                        <a href="/profile">See Your Profile</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="user-profile">
+                    <img src="{% static 'images\ProfileHome\feedback.png ' %}">
+                    <div>
+                        <p>Give Feedback</p>
+                        <a href="/feedback">Help Us to add more feature</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="settings-links">
+                    <img src="{% static 'images\ProfileHome\setting.png ' %}"  class="settings-icon">
+                    <a href="/details">Settings & Privacy <img src="{% static 'images\ProfileHome\arrow.png ' %}" width="10px"></a>
+                </div>
+
+
+                <div class="settings-links">
+                    <img src="{% static 'images\ProfileHome\logout.png ' %}"  class="settings-icon">
+                    <form method="POST" class="logout" >
+                                  {% csrf_token %}
+                        <button type="submit" value="Submit"  name="logout" style="text-decoration:none">
+                    <a href="/home"> Logout <img src="{% static 'images\ProfileHome\arrow.png ' %}"  width="10px"></a>
+               </button></form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="notification-menu">
+
+
+
+                <div class="notifications">
+                    <img src="{{dp}}">
+                    <div>
+                        <p>Give Feedback</p>
+                        <small>Updated Profile</small>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="notifications">
+                    <img src="{% static 'images\dp.jpg ' %}">
+                    <div>
+                        <p>Give Feedback</p>
+                        <small>Updated Profile</small>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="notifications">
+                    <img src="{% static 'images\dp.jpg ' %}">
+                    <div>
+                        <p>Give Feedback</p>
+                        <small>Updated Profile</small>
+                    </div>
+                </div>
+                <hr>
+                <a href="notification.html">See All</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    <div class="container">
+
+       <!--------- left-sidebar------------------>
+
+
+    <div class="left-sidebar">
+        <div class="imp-links">
+
+            <a href="/news"><img src="{% static 'images\ProfileHome\news.png ' %}" alt=""> Latest News</a>
+            <a href="/friends"><img src="{% static 'images\ProfileHome\friends.png' %}" alt=""> Friends</a>
+            <a href="https://discord.gg/rESDDT2N"><img src="{% static 'images\ProfileHome\group.png ' %}" alt=""> Group</a>
+            <a href="https://www.amazon.in/?&ext_vrnc=hi&tag=googhydrabk1-21&ref=pd_sl_7hz2t19t5c_e&adgrpid=58355126069&hvpone=&hvptwo=&hvadid=486386870127&hvpos=&hvnetw=g&hvrand=16353899788453121876&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007777&hvtargid=kwd-10573980&hydadcr=14453_2154373&gclid=CjwKCAjwndCKBhAkEiwAgSDKQY6ExIoEEOrOK9YcsPeUs6pRAnBsQoYZ5G4JT-wKzSc5CBUhK4LONhoCZk4QAvD_BwE"><img src="{% static 'images\ProfileHome\marketplace.png ' %}" alt=""> Marketplace</a>
+            <a href="https://www.youtube.com"><img src="{% static 'images\ProfileHome\watch.png ' %}" alt=""> Watch</a>
+            <a href="#">See More</a>
+        </div>
+        <div class="shortcut-links">
+            <p>Your Shortcuts</p>
+            <a href="https://www.linkedin.com/in/jacob-alwin-joy-9493751a4/"><img src="{% static 'images\ProfileHome\shortcut-1.png ' %}" >Web Developers</a>
+            <a href="https://www.figma.com/files/recent?fuid=976488080347286323"><img src="{% static 'images\ProfileHome\shortcut-2.png ' %}">Web Design Software</a>
+            <a href="https://www.youtube.com/channel/UC59K-uG2A5ogwIrHw4bmlEg"><img src="{% static 'images\ProfileHome\shortcut-3.png ' %}">Full Statck Development</a>
+            <a href=https://codepen.io/trending#"><img src="{% static 'images\ProfileHome\shortcut-4.png ' %}">Website Experts</a>
+        </div>
+       </div>
+
+     <!--------- main-content------------------>
+
+            <div class="main-content" style="flex-basis: 75%">
+              <div class="post-container">
+
+                    <img src="{% static 'images/news/toi.png' %}" style="margin-left: 40% ; width:100px;">
+                         {% for i in dec %}
+                     <div class="eachfriend" style="border: var(--in-color) 1px solid;">
+
+                        <div class="friend">
+                            <div>
+                                <a>&ensp;{{i}}</a>
+                                <br>
+                            </div>
+
+                        </div>
+
+                     </div>
+                       {% endfor %}
+                </div>
+
+                  <div class="post-container">
+
+                    <img src="{% static 'images/news/dc.png' %}" style="margin-left: 40% ; width:100px;">
+                         {% for i in times %}
+                     <div class="eachfriend" style="border: var(--in-color) 1px solid;">
+
+                        <div class="friend">
+                            <div>
+                                <a>&ensp;{{i}}</a>
+                                <br>
+                            </div>
+
+                        </div>
+
+                     </div>
+                       {% endfor %}
+
+                  </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    <div class="footer">
+        <p>Copyright 2021 - Yakob  </p>
+    </div>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
